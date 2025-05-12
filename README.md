@@ -42,3 +42,44 @@ exercises, simulating a series of requests (backlog items) from the client.
     – Depending on our confidence, we can try to fulfill them without any suggestions or follow some high-level         guidance.
     – Regardless of the chosen complexity level, performing such exercises is a
       great way to test our current skills and prepare for the topics yet to come.
+
+# Chapter 3 
+
+## SQL vs NoSQL
+
+![SQL](https://github.com/user-attachments/assets/91376f48-4660-4cbc-ba24-7c976caaa8f9)
+
+Figure 4.2 shows a database schema that can host the same data by using a document oriented, NoSQL alternative approach: a single boardGames document collection with
+two embedded collections of mechanic and domain documents
+
+![NoSQL](https://github.com/user-attachments/assets/05d07f94-3490-47f7-9d4f-9df3af29c172)
+
+Both models are rather easy to understand at first glance because we’re working with a
+simple, demonstrative data structure. But we can easily see that if we had to deal with
+many additional “child” entities, the complexity levels of the two models would likely
+rise at different paces. The SQL schema would likely require additional tables (and
+junction tables), as well as an increasing number of JOINs for retrieving their relevant
+info, thus requiring more development effort.
+ The overall complexity of the database schema (and data retrieval queries) is only
+one of the many factors that we should consider when choosing between a SQL and a
+NoSQL approach
+
+# Scaling
+
+In general terms, we can say that SQL databases are designed to run on a single server
+because they need to maintain the integrity of their tables, indexes, and constraints. They
+are designed to scale vertically by increasing their server’s size, not to scale horizontally
+following a distributed computing approach; even the clustering techniques introduced
+to give them horizontal scaling capabilities are often subject to consistency problems,
+performance bottlenecks, and other drawbacks, not to mention added complexity.
+ 
+ Conversely, NoSQL databases are designed for scaling horizontally on distributed systems, which means having multiple servers working together and sharing the workload.
+
+This design is probably their most important advantage over their SQL counterparts,
+because it makes them better suited to host huge amounts of data, more reliable, and
+more secure. As long as we can count on multiple NoSQL nodes, we won’t have a single point of failure, thus ensuring a higher availability level.
+
+The huge advantage of NoSQL’s horizontal scaling, however, is reduced by the advent of
+several modern cloud-based SQL (or hybrid) DBMS services, which greatly reduce the
+end-user costs of vertical scaling. Moreover, those solutions often include many clustering
+and redundancy techniques that effectively mitigate the risk of a single point of failure
